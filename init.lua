@@ -25,6 +25,7 @@ require("lazy").setup({
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
   "hrsh7th/nvim-cmp",
+  'mfussenegger/nvim-jdtls',
   "ahmedkhalf/project.nvim",
   {
     "folke/todo-comments.nvim",
@@ -271,7 +272,6 @@ require('mason-lspconfig').setup({
   ensure_installed = lspLists
 })
 
-require'lspconfig'.jdtls.setup{ cmd = { 'jdtls' } }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local on_attach = function(client, buffer)
