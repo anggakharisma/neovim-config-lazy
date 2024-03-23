@@ -324,7 +324,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
     vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>')
     vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
@@ -543,3 +542,5 @@ require 'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
+
+vim.cmd("nnoremap <leader>oo <Cmd>lua require'jdtls'.organize_imports()<CR>")
