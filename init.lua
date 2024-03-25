@@ -34,10 +34,11 @@ require("lazy").setup({
     }
   },
 
-  { "catppuccin/nvim",                     name = "catppuccin", priority = 1000 },
-  { "ellisonleao/gruvbox.nvim",            priority = 1000,     config = true,  opts = ... },
+  { "catppuccin/nvim",          name = "catppuccin", priority = 1000 },
+  { "ellisonleao/gruvbox.nvim", priority = 1000,     config = true,  opts = ... },
 
   "rebelot/kanagawa.nvim",
+  "EdenEast/nightfox.nvim",
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -121,7 +122,7 @@ vim.opt.termguicolors = true
 -- vim.cmd.colorscheme "tokyonight-night"
 -- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme 'solarized'
-vim.cmd.colorscheme 'kanagawa'
+vim.cmd.colorscheme 'terafox'
 
 vim.cmd("set background=dark")
 vim.cmd("syntax enable")
@@ -264,7 +265,7 @@ cmp.setup.cmdline(':', {
 
 
 local lspLists = { "tsserver", "rust_analyzer", "gopls", "lua_ls", "prismals", "emmet_ls", "cssls", "volar",
-  "intelephense", "tailwindcss", "dockerls", "yamlls", "clangd", "eslint", "jsonls" }
+  "intelephense", "tailwindcss", "dockerls", "yamlls", "clangd", "eslint", "jsonls", "jedi_language_server" }
 
 -- mason config
 require('mason').setup({})
@@ -392,7 +393,7 @@ end
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'kanagawa',
+    theme = 'terafox',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {
@@ -530,7 +531,6 @@ map('n', '<leader>nn', ":Neotree toggle<cr>")
 map('n', '<C-n>', ":Neotree toggle<cr>")
 
 require 'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
