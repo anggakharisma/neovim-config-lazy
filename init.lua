@@ -119,8 +119,8 @@ vim.cmd('set foldlevel=2')
 -- color
 vim.opt.termguicolors = true
 -- vim.cmd.colorscheme "catppuccin"
-vim.cmd.colorscheme "tokyonight-night"
--- vim.cmd.colorscheme "gruvbox"
+-- vim.cmd.colorscheme "tokyonight-night"
+vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme 'solarized'
 -- vim.cmd.colorscheme 'terafox'
 
