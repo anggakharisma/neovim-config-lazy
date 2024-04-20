@@ -119,10 +119,10 @@ vim.cmd('set foldlevel=2')
 -- color
 vim.opt.termguicolors = true
 -- vim.cmd.colorscheme "catppuccin"
--- vim.cmd.colorscheme "tokyonight-night"
+vim.cmd.colorscheme "tokyonight-night"
 -- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme 'solarized'
-vim.cmd.colorscheme 'terafox'
+-- vim.cmd.colorscheme 'terafox'
 
 vim.cmd("set background=dark")
 vim.cmd("syntax enable")
@@ -279,9 +279,9 @@ local on_attach = function(client, buffer)
   if client.resolved_capabilities ~= nil then
     client.resolved_capabilities.document_formatting = true
   end
-  if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(buffer, true)
-  end
+  -- if client.server_capabilities.inlayHintProvider then
+    -- vim.lsp.diagnostic.enable(buffer, true)
+  -- end
 end
 
 for _, server in ipairs(lspLists) do
