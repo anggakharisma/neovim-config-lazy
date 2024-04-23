@@ -26,6 +26,7 @@ require("lazy").setup({
   "hrsh7th/cmp-cmdline",
   "hrsh7th/nvim-cmp",
   'mfussenegger/nvim-jdtls',
+  'onsails/lspkind.nvim',
   "ahmedkhalf/project.nvim",
   {
     "folke/todo-comments.nvim",
@@ -119,8 +120,8 @@ vim.cmd('set foldlevel=2')
 -- color
 vim.opt.termguicolors = true
 -- vim.cmd.colorscheme "catppuccin"
--- vim.cmd.colorscheme "tokyonight-night"
-vim.cmd.colorscheme "gruvbox"
+vim.cmd.colorscheme "tokyonight-night"
+-- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme 'solarized'
 -- vim.cmd.colorscheme 'terafox'
 
@@ -178,9 +179,29 @@ vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { link = 'CmpItemKindFunction' })
 vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg = 'NONE', fg = '#D4D4D4' })
 vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
+
 local cmp = require 'cmp'
+local lspkind = require "lspkind"
 
 cmp.setup({
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
+      vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        nvim_lua = "",
+        treesitter = "",
+        path = "[Path]",
+        buffer = "",
+        zsh = "[ZSH]",
+        vsnip = "",
+        spell = "暈",
+      })[entry.source.name]
+
+      return vim_item
+    end,
+  },
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
@@ -280,7 +301,7 @@ local on_attach = function(client, buffer)
     client.resolved_capabilities.document_formatting = true
   end
   -- if client.server_capabilities.inlayHintProvider then
-    -- vim.lsp.diagnostic.enable(buffer, true)
+  -- vim.lsp.diagnostic.enable(buffer, true)
   -- end
 end
 
