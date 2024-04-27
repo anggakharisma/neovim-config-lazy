@@ -35,6 +35,11 @@ require("lazy").setup({
     }
   },
 
+  {
+    'maxmx03/solarized.nvim',
+    lazy = false,
+    priority = 1000,
+  },
   { "catppuccin/nvim",          name = "catppuccin", priority = 1000 },
   { "ellisonleao/gruvbox.nvim", priority = 1000,     config = true,  opts = ... },
 
@@ -47,6 +52,15 @@ require("lazy").setup({
     opts = {},
   },
 
+  -- default
+  {
+    'freddiehaddad/feline.nvim',
+    opts = {},
+    config = function(_, opts)
+      require('feline').setup()
+      require('feline').winbar.setup()   -- to use winbar
+    end
+  },
   "nvim-lua/plenary.nvim",
   "williamboman/mason-lspconfig.nvim",
   "nvim-telescope/telescope.nvim",
@@ -58,7 +72,6 @@ require("lazy").setup({
   "tpope/vim-surround",
   "tpope/vim-commentary",
   "tpope/vim-sleuth",
-  "nvim-lualine/lualine.nvim",
   "lewis6991/gitsigns.nvim",
   "nvim-treesitter/nvim-treesitter",
   'nvim-treesitter/nvim-treesitter-context',
@@ -76,13 +89,6 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
-  },
-  {
-    'maxmx03/solarized.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-    end,
   },
 });
 
@@ -119,11 +125,12 @@ vim.cmd('set foldlevel=2')
 
 -- color
 vim.opt.termguicolors = true
-vim.cmd.colorscheme "catppuccin-mocha"
+-- vim.cmd.colorscheme "catppuccin-mocha"
 -- vim.cmd.colorscheme "tokyonight-night"
 -- vim.cmd.colorscheme "gruvbox"
--- vim.cmd.colorscheme 'solarized'
 -- vim.cmd.colorscheme 'terafox'
+-- vim.cmd.colorscheme 'sorbet'
+vim.cmd.colorscheme 'solarized'
 
 vim.cmd("set background=dark")
 vim.cmd("syntax enable")
@@ -140,6 +147,8 @@ vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = 'grey', bold = false })
 vim.api.nvim_set_hl(0, 'Visual', { bg = '#454545', bold = false })
 vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none', bold = false })
 vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#1f44a7', bold = false })
+vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = 'NONE', bold = false })
+vim.api.nvim_set_hl(0, 'telescopeNormal', { bg = 'NONE', bold = false })
 
 -- keybind key config keymap
 vim.cmd('inoremap <expr> <TAB> pumvisible() ? "<C-y>" : "<TAB>"')
@@ -410,47 +419,6 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    -- theme = 'nightfox',
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    }
-  },
-  sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { 'filename' },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress' },
-    lualine_z = { 'location' }
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = { 'filename' },
-    lualine_x = { 'location' },
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-}
 
 require('gitsigns').setup {
   signs                        = {
