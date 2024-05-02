@@ -622,17 +622,17 @@ local c = {
     provider = "",
   },
   fileinfo = {
-    provider = {
-      name = "file_info",
-      opts = {
-        type = "relative-short",
-      },
-    },
-    hl = {
-      style = "bold",
-    },
-    left_sep = " ",
-    right_sep = " ",
+    -- provider = {
+    --   name = "file_info",
+    --   opts = {
+    --     type = "short",
+    --   },
+    -- },
+    -- hl = {
+    --   style = "bold",
+    -- },
+    -- left_sep = " ",
+    -- right_sep = " ",
   },
   diagnostic_errors = {
     provider = "diagnostic_errors",
@@ -738,7 +738,6 @@ local middle = {
 }
 
 local right = {
-  c.lsp_client_names,
   c.file_type,
   c.file_encoding,
   c.position,
