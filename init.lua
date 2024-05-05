@@ -31,6 +31,7 @@ require("lazy").setup({
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {}
   },
 
   {
@@ -763,3 +764,12 @@ require('feline').setup({
   theme = custom_theme,
   vi_mode_colors = vi_mode_colors,
 })
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
