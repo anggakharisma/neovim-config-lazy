@@ -135,6 +135,7 @@ vim.cmd('au ColorScheme * hi Normal ctermbg=none guibg=none')
 vim.cmd('hi Normal guibg=none')
 vim.cmd('hi NonText guibg=none')
 vim.cmd('hi SignColumn guibg=NONE')
+vim.cmd('set signcolumn=yes:1');
 
 -- editor highlight config
 vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = 'grey', bold = false })
@@ -326,7 +327,8 @@ local cfg = {
 } -- add your config here
 require "lsp_signature".setup(cfg)
 -- lspsaga config
-require('lspsaga').setup({})
+require('lspsaga').setup({
+})
 
 local function organize_imports()
   local params = {
