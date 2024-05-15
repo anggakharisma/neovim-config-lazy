@@ -31,8 +31,7 @@ require("lazy").setup({
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {}
-  },
+    opts = {} },
 
   {
     'maxmx03/solarized.nvim',
@@ -569,14 +568,15 @@ local c = {
     provider = {
       name = "vi_mode",
       opts = {
+        bg = "black",
         show_mode_name = true,
-        -- padding = "center", -- Uncomment for extra padding.
+        padding = "center", -- Uncomment for extra padding.
       },
     },
     hl = function()
       return {
         fg = require("feline.providers.vi_mode").get_mode_color(),
-        bg = "darkblue",
+        bg = "black",
         style = "bold",
         name = "NeovimModeHLColor",
       }
@@ -587,8 +587,8 @@ local c = {
   gitBranch = {
     provider = "git_branch",
     hl = {
-      fg = "peanut",
-      bg = "darkblue",
+      fg = "darkblue",
+      bg = "peanut",
       style = "bold",
     },
     left_sep = "block",
@@ -717,7 +717,7 @@ local c = {
   scroll_bar = {
     provider = "scroll_bar",
     hl = {
-      fg = "yellow",
+      fg = "blue",
       style = "bold",
     },
   },
