@@ -29,6 +29,7 @@
   "plenary.nvim": { "branch": "master", "commit": "08e301982b9a057110ede7a735dd1b5285eb341f" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "ripgrep": { "branch": "master", "commit": "f1d23c06e30606b2428a4e32da8f0b5069e81280" },
+  "solarized-osaka.nvim": { "branch": "main", "commit": "92c5def2b522e7869b29b55b448544f226e07524" },
   "solarized.nvim": { "branch": "main", "commit": "b3a976585551d93370fbac3c662ae254724ba103" },
   "telescope.nvim": { "branch": "master", "commit": "e9be6bb7a78cd44b9183ede4627d2bfea4f301f0" },
   "todo-comments.nvim": { "branch": "main", "commit": "a7e39ae9e74f2c8c6dc4eea6d40c3971ae84752d" },

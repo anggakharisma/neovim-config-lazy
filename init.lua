@@ -18,6 +18,7 @@ require("lazy").setup({
   opts = {},
   config = function(_, opts) require 'lsp_signature'.setup(opts) end,
   "hrsh7th/cmp-vsnip",
+  "craftzdog/solarized-osaka.nvim",
   "hrsh7th/vim-vsnip",
   'norcalli/nvim-colorizer.lua',
   "hrsh7th/cmp-nvim-lsp",
@@ -126,7 +127,7 @@ vim.opt.termguicolors = true
 -- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme 'terafox'
 -- vim.cmd.colorscheme 'sorbet'
-vim.cmd.colorscheme 'solarized'
+vim.cmd.colorscheme 'solarized-osaka'
 
 vim.cmd("set background=dark")
 vim.cmd("syntax enable")
