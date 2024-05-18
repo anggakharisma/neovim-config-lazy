@@ -17,6 +17,7 @@ require("lazy").setup({
   event = "VeryLazy",
   opts = {},
   config = function(_, opts) require 'lsp_signature'.setup(opts) end,
+  { "folke/neodev.nvim",        opts = {} },
   "hrsh7th/cmp-vsnip",
   "craftzdog/solarized-osaka.nvim",
   "hrsh7th/vim-vsnip",
@@ -32,12 +33,7 @@ require("lazy").setup({
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {} },
-
-  {
-    'maxmx03/solarized.nvim',
-    lazy = false,
-    priority = 1000,
+    opts = {}
   },
   { "catppuccin/nvim",          name = "catppuccin", priority = 1000 },
   { "ellisonleao/gruvbox.nvim", priority = 1000,     config = true,  opts = ... },
@@ -145,8 +141,8 @@ vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = 'grey', bold = false })
 vim.api.nvim_set_hl(0, 'Visual', { bg = '#454545', bold = false })
 vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none', bold = false })
 vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#1f44a7', bold = false })
-vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = 'NONE', bold = false })
-vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'NONE', bold = false })
+-- vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = 'NONE', bold = false })
+-- vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'NONE', bold = false })
 
 -- keybind key config keymap
 vim.cmd('inoremap <expr> <TAB> pumvisible() ? "<C-y>" : "<TAB>"')
@@ -775,4 +771,3 @@ end, { desc = "Next todo comment" })
 vim.keymap.set("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
-
