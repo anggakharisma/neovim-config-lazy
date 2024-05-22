@@ -45,6 +45,7 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
     opts = {},
+
   },
 
   -- default
@@ -71,6 +72,10 @@ require("lazy").setup({
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
+      source_selector = {
+        winbar = false,
+        statusline = false
+      },
       filesystem = {
         hijack_netrw_behavior = 'open_default'
       }
@@ -138,9 +143,9 @@ vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = 'grey', bold = false })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
 vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = 'grey', bold = false })
 
-vim.api.nvim_set_hl(0, 'Visual', { bg = '#454545', bold = false })
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none', bold = false })
-vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#1f44a7', bold = false })
+-- vim.api.nvim_set_hl(0, 'Visual', { bg = '#454545', bold = false })
+-- vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none', bold = false })
+-- vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#1f44a7', bold = false })
 -- vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = 'NONE', bold = false })
 -- vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'NONE', bold = false })
 
@@ -572,20 +577,20 @@ local c = {
     },
     hl = function()
       return {
-        fg = require("feline.providers.vi_mode").get_mode_color(),
-        bg = "black",
+        fg = 'darkblue',
+        bg =  require("feline.providers.vi_mode").get_mode_color(),
         style = "bold",
         name = "NeovimModeHLColor",
       }
     end,
     left_sep = "block",
-    right_sep = "block",
+    right_sep = "slant_right_2",
   },
   gitBranch = {
     provider = "git_branch",
     hl = {
-      fg = "darkblue",
-      bg = "peanut",
+      fg = "lightblue",
+      bg = "darkblue",
       style = "bold",
     },
     left_sep = "block",
@@ -714,7 +719,7 @@ local c = {
   scroll_bar = {
     provider = "scroll_bar",
     hl = {
-      fg = "blue",
+      fg = "lightblue",
       style = "bold",
     },
   },
