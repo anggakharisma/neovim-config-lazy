@@ -35,6 +35,43 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {}
   },
+  {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
+  },
   { "catppuccin/nvim",          name = "catppuccin", priority = 1000 },
   { "ellisonleao/gruvbox.nvim", priority = 1000,     config = true,  opts = ... },
 
@@ -143,9 +180,9 @@ vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = 'grey', bold = false })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
 vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = 'grey', bold = false })
 
--- vim.api.nvim_set_hl(0, 'Visual', { bg = '#454545', bold = false })
--- vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none', bold = false })
--- vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#1f44a7', bold = false })
+vim.api.nvim_set_hl(0, 'Visual', { bg = '#454545', bold = false })
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none', bold = false })
+vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#1f44a7', bold = false })
 -- vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = 'NONE', bold = false })
 -- vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'NONE', bold = false })
 
@@ -578,7 +615,7 @@ local c = {
     hl = function()
       return {
         fg = 'darkblue',
-        bg =  require("feline.providers.vi_mode").get_mode_color(),
+        bg = require("feline.providers.vi_mode").get_mode_color(),
         style = "bold",
         name = "NeovimModeHLColor",
       }
