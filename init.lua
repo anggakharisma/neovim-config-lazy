@@ -98,7 +98,13 @@ require("lazy").setup({
   "BurntSushi/ripgrep",
   "williamboman/mason.nvim",
   "nvimdev/lspsaga.nvim",
-  "jiangmiao/auto-pairs",
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
   "tpope/vim-fugitive",
   "tpope/vim-surround",
   "tpope/vim-commentary",
@@ -226,6 +232,12 @@ vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
 
 local cmp = require 'cmp'
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 local lspkind = require "lspkind"
 
 cmp.setup({
@@ -275,8 +287,6 @@ cmp.setup({
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
       else
         fallback()
       end
