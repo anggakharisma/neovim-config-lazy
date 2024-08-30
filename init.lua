@@ -161,11 +161,11 @@ vim.cmd('set foldlevel=2')
 -- color
 vim.opt.termguicolors = true
 -- vim.cmd.colorscheme "catppuccin-mocha"
--- vim.cmd.colorscheme "tokyonight-night"
+vim.cmd.colorscheme "tokyonight-night"
 -- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme 'terafox'
 -- vim.cmd.colorscheme 'sorbet'
-vim.cmd.colorscheme 'solarized-osaka'
+-- vim.cmd.colorscheme 'solarized-osaka'
 
 vim.cmd("set background=dark")
 vim.cmd("syntax enable")
@@ -578,8 +578,8 @@ if not line_ok then
 end
 
 local custom_theme = {
-  fg = "#abb2bf",
-  bg = "#002b36",
+  fg = "fg",
+  bg = "bg",
   green = "#98c379",
   yellow = "#e5c07b",
   purple = "#c678dd",
