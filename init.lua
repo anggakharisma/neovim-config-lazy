@@ -367,6 +367,9 @@ for _, server in ipairs(lspLists) do
   }
 end
 
+require 'lspconfig'.stimulus_ls.setup {}
+
+
 local cfg = {
   bind = true, -- This is mandatory, otherwise border config won't get registered.
   handler_opts = {
