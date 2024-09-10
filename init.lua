@@ -167,11 +167,11 @@ vim.cmd('set foldlevel=2')
 -- color
 vim.opt.termguicolors = true
 -- vim.cmd.colorscheme "catppuccin-mocha"
-vim.cmd.colorscheme "tokyonight-night"
+-- vim.cmd.colorscheme "tokyonight-night"
 -- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme 'terafox'
 -- vim.cmd.colorscheme 'sorbet'
--- vim.cmd.colorscheme 'solarized-osaka'
+vim.cmd.colorscheme 'solarized-osaka'
 
 vim.cmd("set background=dark")
 vim.cmd("syntax enable")
