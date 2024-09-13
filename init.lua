@@ -17,8 +17,9 @@ require("lazy").setup({
   event = "VeryLazy",
   opts = {},
   config = function(_, opts) require 'lsp_signature'.setup(opts) end,
-  { "folke/neodev.nvim",        opts = {} },
+  { "folke/neodev.nvim", opts = {} },
   "hrsh7th/cmp-vsnip",
+  { "rose-pine/neovim",  name = "rose-pine" },
   "craftzdog/solarized-osaka.nvim",
   "hrsh7th/vim-vsnip",
   'norcalli/nvim-colorizer.lua',
@@ -171,7 +172,8 @@ vim.opt.termguicolors = true
 -- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme 'terafox'
 -- vim.cmd.colorscheme 'sorbet'
-vim.cmd.colorscheme 'solarized-osaka'
+-- vim.cmd.colorscheme 'solarized-osaka'
+vim.cmd.colorscheme 'rose-pine'
 
 vim.cmd("set background=dark")
 vim.cmd("syntax enable")
@@ -507,9 +509,6 @@ require('gitsigns').setup {
     row = 0,
     col = 1
   },
-  yadm                         = {
-    enable = false
-  },
 
   on_attach                    = function(bufnr)
     local gs = package.loaded.gitsigns
@@ -600,7 +599,7 @@ local custom_theme = {
   peanut = "#f6d5a4",
   red = "#e06c75",
   aqua = "#61afef",
-  darkblue = "#002b36",
+  darkblue = "#1b1b27",
   dark_red = "#f75f5f",
 }
 
