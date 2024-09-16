@@ -561,7 +561,9 @@ vim.api.nvim_create_autocmd("WinLeave", {
 })
 
 require 'colorizer'.setup()
-require 'project_nvim'.setup()
+require 'project_nvim'.setup({
+   manual_mode = true
+})
 
 vim.cmd("let &fcs='eob: '")
 
@@ -592,9 +594,9 @@ end
 local custom_theme = {
   fg = "fg",
   bg = "bg",
-  green = "#98c379",
-  yellow = "#e5c07b",
-  purple = "#c678dd",
+  green = "lightgreen",
+  yellow = "yellow",
+  purple = "purple",
   orange = "#d19a66",
   peanut = "#f6d5a4",
   red = "#e06c75",
@@ -626,7 +628,7 @@ local c = {
     },
     hl = function()
       return {
-        fg = 'darkblue',
+        fg = 'black',
         bg = require("feline.providers.vi_mode").get_mode_color(),
         style = "bold",
         name = "NeovimModeHLColor",
@@ -816,6 +818,13 @@ require('feline').setup({
   components = components,
   theme = custom_theme,
   vi_mode_colors = vi_mode_colors,
+})
+
+require("neo-tree").setup({
+  source_selector = {
+    winbar = false,
+    statusline = false
+  }
 })
 
 vim.keymap.set("n", "]t", function()
